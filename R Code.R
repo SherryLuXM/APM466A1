@@ -1,12 +1,16 @@
+## set up the libraries
 library(readxl)
 library(janitor)
 library(lubridate)
 library(numDeriv)
 library(tidyverse)
+
+## load data and data cleaning
 df <- read_excel("C:/Users/i5/Downloads/APM466 Introduction to Mathematical Finance/Assignment 1 Bond Data.xlsx")
 bonds <- data.frame(df[2], df[4], df[6:16])
 bonds <- bonds[-1,]
-names <-  c("coupon", "mat_date", "issue_date", "cp10", "cp11", "cp12", "cp13", "cp14", "cp17", "cp18", "cp19", "cp20", "cp21")
+names <-  c("coupon", "mat_date", "issue_date", "cp10", "cp11", "cp12", "cp13", "cp14", "cp17", "cp18", "cp19", "cp20", "cp21") 
+# cpxx stands for closing price for coupon on Jan.xx
 colnames(bonds) <- names
 head(bonds)
 rows <- c(9, 12, 14, 17, 6, 26, 27, 29, 30, 32)
@@ -28,7 +32,11 @@ bond$cp21 <- as.numeric(bond$cp21)
 finalp <- 100 # bond payment at maturity, last coupon payment not included
 dirty_price1 <- vector("double", 10)
 
-############## example for Q4(a)################################################
+####################################################################################################
+##################################### YTM Calculator ###############################################
+####################################################################################################
+
+############## example for Setting Up YTM Calculator################################################
 ex <- bond[1, 1:4]
 ex
 #                  coupon   mat_date issue_date cp10
@@ -89,7 +97,6 @@ root0
 # $`root approximation`
 #[1]  0.001694901
 ################################################################################
-
 # a function for getting the accrued interest, given maturity date[m] and day of buying[today]
 accrued_interest <- function(m, today, c){
   cur <- m
@@ -216,7 +223,7 @@ ytms
 as.data.frame(ytms)
 
 
-###### graphing ######
+############## graphing ################
 today <- as.Date("2022-01-10")
 to_maturity <- vector("double", 10)
 for (i in 1:10){
@@ -252,7 +259,7 @@ legend("bottomright", legend=c("Jan.10", "Jan.11", "Jan.12", "Jan.13", "Jan.14",
              "coral", "pink", "brown"), lty = 1:10, cex=0.8)
 
 ################################################################################
-#############################Question 4 part(b)#################################
+############################ Yield/Spot Curve Calculator #######################
 ################################################################################
 spot <- as.data.frame(matrix(, ncol = 10, nrow = 10))
 ex2 <- bond[, 1:4]
@@ -303,7 +310,7 @@ legend("bottomright", legend=c("Jan.10", "Jan.11", "Jan.12", "Jan.13", "Jan.14",
              "coral", "pink", "brown"), lty = 1:10, cex=0.8)
 
 ################################################################################
-################## Question 4 part(c) ##########################################
+################## Forward Rate Calculator #####################################
 ################################################################################
 forward <- as.data.frame(matrix(, ncol = 10, nrow = 7))
 for (i in 1:10){
@@ -333,7 +340,7 @@ legend("bottomright", legend=c("Jan.10", "Jan.11", "Jan.12", "Jan.13", "Jan.14",
              "coral", "pink", "brown"), lty = 1:10, cex=0.8)
 
 ################################################################################
-###################Question 5 ##################################################
+################### Covariance Matrix Calculator ###############################
 ################################################################################
 yield_dis <- as.data.frame(matrix(, ncol = 9, nrow = 5))
 for (i in 1:5){
@@ -355,6 +362,7 @@ forward_dis
 coforward <- cov(forward_dis)
 coforward
 round(coforward, 6)
+## calculating the eigenvalues and eigenvectors of the covariane matrix
 a <- eigen(coyield)
 a$values
 a$vectors
