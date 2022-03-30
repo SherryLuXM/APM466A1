@@ -16,6 +16,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#File-guide">File Guide</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -38,7 +39,9 @@ This project focuses on analyzing the closing prices of 10 Canadian bonds with a
 and to calculate:
 * the covariance matrix for the time series of daily log-returns of yield,
 * the covariance matrix for the 1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr forward rates,
-* the eigenvalues and eigenvectors of both covariance matrices.
+* the eigenvalues and eigenvectors of both covariance matrices  
+
+assuming instanenous compounding. 
 
 ### Built With
 R packages:
