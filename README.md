@@ -34,9 +34,9 @@ This project focuses on analyzing the closing prices of 10 Canadian bonds with a
 * 5-year YTM(yield to maturity) curve,
 * and 1-year forward curve with terms ranging from 2-5 years,
 and to calculate:
-* the covariance matrix for the time series of daily log-returns of yield
-* the covariance matrix for the 1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr forward rates
-* the eigenvalues and eigenvectors of both covariance matrices
+* the covariance matrix for the time series of daily log-returns of yield,
+* the covariance matrix for the 1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr forward rates,
+* the eigenvalues and eigenvectors of both covariance matrices.
 
 ### Built With
 R packages:
