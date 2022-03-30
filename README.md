@@ -32,7 +32,8 @@
 This project focuses on analyzing the closing prices of 10 Canadian bonds with a maturity of less than 10 years, from Jan.10 - 24, 2022 to generate:
 * 1-5 year yield/spot curves,
 * 5-year YTM(yield to maturity) curve,
-* and 1-year forward curve with terms ranging from 2-5 years,
+* and 1-year forward curve with terms ranging from 2-5 years,  
+
 and to calculate:
 * the covariance matrix for the time series of daily log-returns of yield,
 * the covariance matrix for the 1yr-1yr, 1yr-2yr, 1yr-3yr, 1yr-4yr forward rates,
