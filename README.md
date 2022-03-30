@@ -20,6 +20,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#Set-up">Set-up</a></li>
+    <li><a href="#Dataset">Dataset</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -48,13 +49,13 @@ R packages:
 * tidyverse
 
 ### File Guide
-* A1 R Code.R: code containing all algorithm and computation;
+* R Code.R: code containing all algorithm and computation;
 * Assignment 1 Bond Data: contains closing price of all Canadian bonds with a maturity of less than 10 years, from Jan.10 - 24, 2022;
 * LICENSE: MIT License for the project.
 
 ## Usage
 
-The code can be referenced for data cleaning, derivative computation, bootstrapping, Newton's method application, and the financial calculations specified above. 
+The code is completely written by me. It can be referenced for data cleaning, derivative computation, bootstrapping, Newton's method application, and the financial calculations specified above. 
 Please make your own judgement of what to incorporate and contributions are welcomed.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -72,6 +73,9 @@ package.check <- lapply(
       repos = "https://cloud.r-project.org/")}})
 rm(packages_needed, package.check)
 ```
+
+## Dataset
+The data from Assignment 1 Bond Price.xlsx are completely collected by me, from [Business Insider](https://markets.businessinsider.com/bonds/).
 
 ## License
 
